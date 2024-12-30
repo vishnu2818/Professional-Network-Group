@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TheEvent</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    {% load static %}
+    <!-- Favicons -->
+      <link href="{% static 'png_static/img/png_favicon.png' %}" rel="icon">
+    <!--  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="{% static 'static_home/news_static/lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="{% static 'static_home/news_static/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'static_home/news_static/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'static_home/news_static/lib/venobox/venobox.css' %}" rel="stylesheet">
+    <link href="{% static 'static_home/news_static/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="{% static 'static_home/news_static/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'png_static/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header id="header" class="header-fixed">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <a href="index.html#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a>
+        </div>
+
+    </div>
+</header><!-- #header -->
+{% block content %}
+<!--<link href="{% static 'static_home/news_static/css/style.css' %}" rel="stylesheet">-->
+<link href="{% static 'png_static/css/style.css' %}" rel="stylesheet">
+<main id="main" class="main-page">
+     {%  if news %}
+    <section id="speakers-details" class="wow fadeIn">
+        <div class="container">
+            <div class="section-header">
+                <h2>NEWS Details</h2>
+                <p>{{news.publication_date}}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <img src="{{news.news_img.url}}" alt="{{news.title}}" class="img-fluid" style="height:350px; width:600px;padding-bottom:50px" >
+                </div>
+
+                <div class="col-md-5">
+                    <div class="details">
+                        <h2>{{news.title}}</h2>
+                        <p>{{news.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    {% endif %}
+     {%  if event %}
+    <section id="speakers-details1" class="wow fadeIn">
+        <div class="container">
+            <div class="section-header">
+                <h2>Event Details</h2>
+                <p>{{event.date}}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{event.event_img.url}}" alt="{{event.name}}" class="img-fluid" style="height:350px; width:400px;padding-bottom:50px">
+                </div>
+                <div class="col-md-6">
+                    <div class="details">
+                        <h2>{{event.name}}</h2>
+                        <p>{{event.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    {% endif %}
+
+</main>
+{% endblock %}
+
+<!-- Footer Start -->
+<div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
+    <div class="container pt-5 pb-4">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <a href="index.html">
+                    <img src="{% static 'png_static\img\png_favicon.png' %}" style="height: 60px; width: 70px;">
+                </a>
+                <p class="mt-4 text-light">PNG continues to foster a vibrant environment where entrepreneurs,
+                    professionals, and
+                    business leaders unite to grow, collaborate, and succeed.</p>
+                <div class="d-flex hightech-link">
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
+                            class="fab fa-facebook-f text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
+                            class="fab fa-twitter text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
+                            class="fab fa-instagram text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i
+                            class="fab fa-linkedin-in text-primary"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h2 class="h3 text-secondary">Short Link</h2>
+                <div class="mt-4 d-flex flex-column short-link">
+                    <a href="{% url 'about' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>About
+                        us</a>
+                    <a href="{% url 'index' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Services</a>
+                    <a href="{% url 'partners' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Partners</a>
+                    <a href="{% url 'news_new' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>News</a>
+                    <a href="{% url 'events' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Events</a>
+                    <a href="{% url 'index' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h2 class="h3 text-secondary">Contact Us</h2>
+                <div class="text-white mt-4 d-flex flex-column contact-link">
+                    <a href="#" class="pb-3 text-light border-bottom border-primary"><i
+                            class="fas fa-map-marker-alt text-secondary me-2"></i> Chennai</a>
+                    <a href="#" class="py-3 text-light border-bottom border-primary"><i
+                            class="fas fa-phone-alt text-secondary me-2"></i> +91 94442 46652</a>
+                    <a href="#" class="py-3 text-light border-bottom border-primary"><i
+                            class="fas fa-envelope text-secondary me-2"></i> pngmeetup@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <hr class="text-light mt-5 mb-4">
+        <div class="row text-center">
+            <span class="text-light"><a href="#" class="text-secondary"><i
+                    class="fas fa-copyright text-secondary me-2"></i>PNG</a>, All right reserved.
+                </span>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="{% static 'static_home/news_static/lib/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/jquery/jquery-migrate.min.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/superfish/hoverIntent.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/superfish/superfish.min.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/venobox/venobox.min.js' %}"></script>
+<script src="{% static 'static_home/news_static/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="{% static 'static_home/news_static/contactform/contactform.js' %}"></script>
+
+<!-- Template Main Javascript File -->
+<script src="{% static 'static_home/news_static/js/main.js' %}"></script>
+</body>
+
+</html>

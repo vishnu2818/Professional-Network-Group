@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PNG</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    {% load static %}
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <!--        C:\Odoo\BNI\png_project\static\landing_static\lib-->
+    <!--        "{% static 'png_static\img\png_favicon.png' %}"-->
+    <link href="{% static 'landing_static/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'landing_static/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'landing_static/lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'landing_static/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'landing_static/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Spinner Start -->
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+
+    <!-- Navbar & Hero Start -->
+        <div class="container-fluid header position-relative overflow-hidden p-0">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="index.html" class="navbar-brand p-0">
+                      <img src="{% static '/static_home/img/png_new.png' %}" alt="Image"
+                                style="width: 200px; height: 80px; object-fit: contain;">
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                         <a class="btn-square btn btn-primary rounded-circle mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                         <a class="btn-square btn btn-primary rounded-circle mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                         <a class="btn-square btn btn-primary rounded-circle mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                         <a class="btn-square btn btn-primary rounded-circle mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero Header Start -->
+<!--        <div>-->
+            <div class="hero-header overflow-hidden px-5" style="margin-top: -400px;">
+                <div class="rotate-img">
+                    <img src="{% static 'landing_static/img/sty-1.png' %}" class="img-fluid" alt="">
+                    <div class="rotate-sty-2"></div>
+                </div>
+                <div class="row gy-5 align-items-center" style="height:500px; margin-top:10px">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                        <h3 class=" text-dark wow fadeInUp" data-wow-delay="0.3s">{{company.banner_content}}</h3>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                         <img class="" src="{{ company.banner.url }}" style="width: 600px; height:900px; object-fit: contain;"
+                    alt="">
+                 </div>
+                </div>
+            </div>
+<!--        </div>-->
+        <!-- Navbar & Hero End -->
+
+
+<!-- About Start -->
+<div class="container-fluid overflow-hidden py-5" style="">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="RotateMoveLeft">
+                    <a href="{{ company.website_url }}" class="navbar-brand d-flex align-items-center">
+                        <img src="{{ company.logo.url }}" alt="Logo"
+                             style="width: 500px; height: 250px; object-fit: contain;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <b style="font-size:25px" class="mb-1 text-primary">About {{ company.title }}</b>
+                {% if company %}
+<!--                <h1 class="display-5 mb-4">-->
+<!--                   {{ company.title }}-->
+<!--                </h1>-->
+                {% else %}
+                <p>No company details found. Please contact support.</p>
+                {% endif %}
+                <p class="mb-4">
+                  {{ company.description }}
+                </p>
+
+                <!-- Social Media and Website Links -->
+                <div class="social-icons mt-4">
+                    <span class="text-dark">Follow Us:</span>
+                    <div class="d-flex justify-content-start mt-3">
+                        {% if company.linkedin_url %}
+                        <a href="{{ company.linkedin_url }}" target="_blank" class="btn-square btn btn-primary rounded-circle mx-2">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if company.facebook_url %}
+                        <a href="{{ company.facebook_url }}" target="_blank" class="btn-square btn btn-primary rounded-circle mx-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if company.instagram_url %}
+                        <a href="{{ company.instagram_url }}" target="_blank" class="btn-square btn btn-primary rounded-circle mx-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if company.youtube_url %}
+                        <a href="{{ company.youtube_url }}" target="_blank" class="btn-square btn btn-primary rounded-circle mx-2">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if company.website_url %}
+                        <a href="{{ company.website_url }}" target="_blank" class="btn-square btn btn-primary rounded-circle mx-2">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Service Start -->
+{% if company.services %}
+<div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+            <b style="font-size:25px" class="mb-1 text-primary">Our Service</b>
+            <h1 class="display-5 mb-4">What We Can Do For You</h1>
+
+            <!-- Container for the three-column layout -->
+            <div id="services-container" class="row" style="font-size:20px"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the services description text
+    const servicesDescriptionText = `{{ company.services }}`;
+
+    // Split the description by full stops to separate sentences
+    const servicePoints = servicesDescriptionText.split('.').map(point => point.trim()).filter(point => point !== "");
+
+    // Get the services container where columns will be added
+    const servicesContainer = document.getElementById("services-container");
+
+    // Initialize column and add services
+    let currentColumn;
+
+    servicePoints.forEach((point, index) => {
+        // Create a new column every 3 services
+        if (index % 3 === 0) {
+            currentColumn = document.createElement("div");
+            currentColumn.className = "col-lg-4 col-md-6 mb-4"; // Bootstrap column classes
+            const ul = document.createElement("ul");
+            ul.style.listStyleType = "none";
+            ul.style.textAlign = "left";
+            currentColumn.appendChild(ul);
+            servicesContainer.appendChild(currentColumn);
+        }
+
+        // Add the service point to the current column
+        const listItem = document.createElement("li");
+      listItem.innerHTML = `<span style="color: #cf2030; font-weight: bold; ">➣</span> ${point}.`;
+
+        currentColumn.querySelector("ul").appendChild(listItem);
+    });
+</script>
+{% endif %}
+
+<!-- Footer Start -->
+<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="text-dark mb-4">Professional Network Group(PNG)</h4>
+
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-dark">Short Links</h4>
+                    <a href=""> Service</a>
+                    <a href=""> Partners</a>
+                    <a href="">News</a>
+                    <a href="">Events</a>
+                    <a href=""> Contact</a>
+                    <!--                            <a href=""> Our Team</a>-->
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="mb-4 text-dark">Contact Info</h4>
+                    <a href=""><i class="fa fa-map-marker-alt me-2"></i>Chennai</a>
+                    <a href=""><i class="fas fa-envelope me-2"></i> pngmeetup@gmail.com</a>
+                    <a href=""><i class="fas fa-phone me-2"></i> +91 94442 46652</a>
+                    <!--                            <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>-->
+                    <div class="d-flex align-items-center">
+<!--                        <i class="fas fa-share fa-2x text-secondary me-2"></i>-->
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
+                                class="fas fa-globe"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright py-4">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-md-0">
+                <span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>PNG</a>, All right reserved.</span>
+            </div>
+            <div class="col-md-6 text-center text-md-end text-white">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'landing_static/lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'landing_static/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'landing_static/lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'landing_static/lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'landing_static/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'landing_static/lib/lightbox/js/lightbox.min.js' %}"></script>
+
+
+<!-- Template Javascript -->
+<script src="{% static 'landing_static/js/main.js' %}"></script>
+</body>
+
+</html>

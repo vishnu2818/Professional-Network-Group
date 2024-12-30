@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>Professional Network Group</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    {% load static %}
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'png_static/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'png_static/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'png_static/img/png_favicon.png' %}" rel="icon">
+    <link href="{% static 'png_static/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'png_static/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/static_home/css/main1.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<!-- Spinner Start -->
+<div id="spinner"
+     class="show position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" role="status"></div>
+</div>
+<!-- Spinner End -->
+
+<!-- Topbar Start -->
+<div class="container-fluid bg-dark py-2 d-none d-md-flex">
+    <div class="container">
+        <div class="d-flex justify-content-between topbar">
+            <div class="top-info">
+                <small class="me-3 text-white"><a href="#"><i class="fas fa-map-marker-alt me-2 text-secondary"></i></a>Chennai</small>
+                <small class="me-3 text-white"><a href="#"><i class="fas fa-envelope me-2 text-secondary"></i></a>pngmeetup@gmail.com</small>
+            </div>
+            <!--            <div id="note" class="text-secondary d-none d-xl-flex"><small>Note : We help you to Grow your-->
+            <!--                Business</small></div>-->
+            <div class="top-link">
+                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i
+                        class="fab fa-facebook-f text-primary"></i></a>
+                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i
+                        class="fab fa-twitter text-primary"></i></a>
+                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle"><i
+                        class="fab fa-instagram text-primary"></i></a>
+                <a href="" class="bg-light nav-fill btn btn-sm-square rounded-circle me-0"><i
+                        class="fab fa-linkedin-in text-primary"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+<!-- Navbar Start -->
+<div class="container-fluid bg-primary">
+    <div class="container">
+        <nav class="navbar navbar-dark navbar-expand-lg py-0">
+            <a href="index.html" class="navbar-brand">
+                <!--                        <h1 class="text-white fw-bold d-block">High<span class="text-secondary">Tech</span> </h1>-->
+                <img src="{% static 'png_static\img\png_favicon.png' %}" style="height: 60px; width: 70px;">
+            </a>
+            <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-transparent" id="navbarCollapse">
+                <div class="navbar-nav ms-auto mx-xl-auto p-0">
+                    <a href="{% url 'index' %}" class="nav-item nav-link active text-secondary">Home</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                    <a href="#service" class="nav-item nav-link">Services</a>
+                    <a href="{% url 'partners' %}" class="nav-item nav-link">Partners</a>
+                    <a href="{% url 'events' %}" class="nav-item nav-link">Events</a>
+                    <a href="{% url 'news_new' %}" class="nav-item nav-link">News</a>
+                    <!--                    <div class="nav-item dropdown">-->
+                    <!--                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>-->
+                    <!--                        <div class="dropdown-menu rounded">-->
+                    <!--                            <a href="blog.html" class="dropdown-item">Our Blog</a>-->
+                    <!--                            <a href="team.html" class="dropdown-item">Our Team</a>-->
+                    <!--                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>-->
+                    <!--                            <a href="404.html" class="dropdown-item">404 Page</a>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+            <div class="d-none d-xl-flex flex-shirink-0">
+                <div id="phone-tada" class="d-flex align-items-center justify-content-center me-4">
+                    <a href="" class="position-relative animated tada infinite">
+                        <i class="fa fa-phone-alt text-black fa-2x"></i>
+                        <div class="position-absolute" style="top: -7px; left: 20px;">
+                            <span><i class="fa fa-comment-dots text-secondary"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="d-flex flex-column pe-4">
+                    <span class="text-white-50">Have any questions?</span>
+                    <span class="text-black ">Call: +91 9444246652</span>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+<!-- Carousel Start -->
+<div class="container-fluid px-0">
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="{% static 'png_static/img/carousel-1.jpg' %}" class="img-fluid" alt="First slide">
+                <div class="carousel-caption">
+                    <div class="container carousel-content">
+                        <!--                        <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>-->
+                        <h1 class="text-white display-1 mb-4 animated fadeInRight">Connect, Learn, and Grow with
+                            PNG</h1>
+                        <p class="mb-4 text-white fs-5 animated fadeInDown">"A dynamic platform for entrepreneurs,
+                            professionals, and businesses to collaborate,
+                            learn, and thrive."</p>
+                        <a href="{% url 'registration-form' %}" class="me-2">
+                            <button type="button"
+                                    class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">
+                                Join Us
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+
+ <video class="video-background" autoplay muted loop>
+    <source src="{% static 'static_new/assets/images/course-video.mp4' %}" type="video/mp4"/>
+</video>
+
+                <div class="carousel-caption">
+                    <div class="container carousel-content">
+                        <!--                        <h6 class="text-secondary h4 animated fadeInUp">Best IT Solutions</h6>-->
+                        <h1 class="text-white display-1 mb-4 animated fadeInLeft">Quality Digital Services You Really
+                            Need!</h1>
+                        <p class="mb-4 text-white fs-5 animated fadeInDown">"A dynamic platform for entrepreneurs,
+                            professionals, and businesses to collaborate,
+                            learn, and thrive."</p>
+                        <a href="{% url 'registration-form' %}" class="me-2">
+                            <button type="button"
+                                    class="px-4 py-sm-3 px-sm-5 btn btn-primary rounded-pill carousel-content-btn1 animated fadeInLeft">
+                                Join Us
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- About Start -->
+<div class="container-fluid py-5 my-5">
+    <div class="container pt-5">
+        <div class="row g-5">
+
+            <!-- First Column (Image) -->
+            <div class="col-lg-4 col-md-4 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+                <div class="h-100 position-relative">
+                    <img src="{% static 'png_static/img/about-1.jpg' %}" class="img-fluid w-75 rounded" alt=""
+                         style="margin-bottom: 25%;">
+                    <div class="position-absolute w-75" style="top: 25%; left: 25%;">
+                        <img src="{% static 'png_static/img/about-2.jpg' %}" class="img-fluid w-100 rounded" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Column (Text Content) -->
+            <div class="col-lg-4 col-md-4 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+                <h5 class="text-primary">About Us </h5>
+                <p><b>Professional Network Group (PNG)</b> was founded by <b>Er. Raja B.E., </b>Managing Partner of RPR
+                    Group of Companies in October 2017 under the name D-Connect, a referral-based network designed
+                    to connect entrepreneurs and businesses. From October 2017 to August 2024, D-Connect facilitated
+                    business referrals worth ₹5 Crores across multiple industries, despite not having a formalized
+                    member base.</p>
+                <a href="{% url 'about' %}" class="btn btn-secondary rounded-pill px-5 py-3 text-white">More Details</a>
+            </div>
+
+            <!-- Third Column (Events Section) -->
+            <div class="col-lg-4 col-md-4 col-sm-12 wow fadeIn" data-wow-delay=".7s">
+                <div style="border: 2px solid #ddd; border-radius: 8px; background-color: #fff; padding: 20px;">
+                    <div class="categories">
+                        <h4 style="text-align: center; font-size: 1.5rem; color: #cf2030; font-weight: bold; margin-bottom: 20px;">
+                            News</h4>
+
+                        <!-- Scrollable Event List -->
+                        <div class="list-group" style="max-height: 300px; overflow-y: auto;">
+                            {% for news in news_articles %}
+                            <a href="{% url 'news_page' news.id %}" style="text-decoration: none;">
+                                <div class="list-group-item d-flex align-items-center"
+                                     style="border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; background-color: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                    <img
+                                            src="{{ news.news_img.url }}"
+                                            alt="{{ news.title }}"
+                                            class="img-fluid rounded-3 me-3"
+                                            style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                                    <!--                                    <div style="border: 2px solid;">-->
+                                    <!--                                        <h5 class="" style="font-size: 1.1rem; color: #333; font-weight: bold;">{{ news.title }}</h5>-->
+                                    <!--                                        <p class=" "-->
+                                    <!--                                           style="font-size: 0.9rem; color: #666; max-width: 300px; white-space: nowrap;">-->
+                                    <!--                                            {{ news.content|truncatewords:13 }}</p>-->
+                                    <!--                                    </div>-->
+                                    <div>
+                                        <h5 class="mb-1" style="font-size: 1.1rem; color: #333; font-weight: bold;">
+                                            {{ news.title }}
+                                        </h5>
+                                        <p style="font-size: 0.9rem; color: #666; max-width: 300px;">
+                                            {{ news.content|truncatewords:6 }}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </a>
+                            {% empty %}
+                            <p style="text-align: center; color: #888; font-size: 1rem;">No News available.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- About End -->
+
+<!--Our Mission-->
+<div class="container">
+    <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 1300px;">
+        <h5 class="text-primary">Our Mission</h5>
+        <p class="mb-2"><b>PNG</b> is a dynamic platform committed to connecting entrepreneurs and professionals through
+            regular meetups centered around three core pillars: <b>Developing Skills, Knowledge Sharing</b>, and <b>Value
+                Creation (DKV)</b>. Our mission is to empower business owners and professionals to achieve sustainable
+            growth, create new opportunities, and cultivate a culture of mutual success.</p>
+    </div>
+</div>
+<!--end Our Mission-->
+
+
+<!-- Our Core Pillars -->
+<div class="container">
+    <div id="gap">
+        <div class="row mx-auto pb-5 fadeIn gap" data-wow-delay=".6s">
+            <!-- Developing Skills (D) -->
+            <div class="col-md-4 pillar" data-wow-delay=".6s">
+                <h5><b>Developing Skills (D):</b></h5>
+                <ul>
+                    <li><b>Workshops & Training:</b> Providing a platform to enhance business and leadership skills in
+                        areas
+                        such as marketing, finance, leadership, and technology.
+                    </li>
+                    <li><b>Peer-to-Peer Learning:</b> Promoting mutual learning through networking and collaboration.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Knowledge Sharing (K) -->
+            <div class="col-md-4 pillar" data-wow-delay=".6s">
+                <h5><b>Knowledge Sharing (K):</b></h5>
+                <ul>
+                    <li><b>Expert Talks & Panel Discussions:</b> Facilitating a space for exchanging insights,
+                        experiences,
+                        and expertise.
+                    </li>
+                    <li><b>Mentorship Programs:</b> Connecting seasoned leaders with those eager to grow their knowledge
+                        and
+                        leadership skills.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Value Creation (V) -->
+            <div class="col-md-4 pillar" data-wow-delay=".6s">
+                <h5><b>Value Creation (V):</b></h5>
+                <ul>
+                    <li><b>Collaborations & Partnerships:</b> Encouraging entrepreneurs to create and exchange value
+                        through
+                        joint ventures, partnerships, and business referrals.
+                    </li>
+                    <li><b>Business Opportunities:</b> Building a network that supports collaboration and mutual growth.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Core Pillars -->
+
+<!-- Vision Section -->
+<div class="container-fluid py-5 my-5">
+    <div class="container pt-5">
+        <div class="row g-5">
+
+            <!-- Second Column (Text Content) -->
+            <div class="col-lg-8 col-md-4 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+                <h5 class="text-primary"> Our Vision </h5>
+                <p>Our vision is to become the leading global platform for entrepreneurs and professionals, where ideas
+                    are nurtured, knowledge is shared, and businesses thrive through collaboration. We aim to create an
+                    inclusive ecosystem that empowers individuals and organizations to achieve sustainable growth,
+                    unlock new opportunities, and form long-lasting partnerships. Through skill development, innovation,
+                    and mutual value creation, PNG will serve as the catalyst for transforming the business landscape,
+                    enabling every member to achieve success and make a positive impact in their industries and
+                    communities. We are committed to continuous evolution, unwavering core values, and excellence.</p>
+<!--                <a href="{% url 'about' %}" class="btn btn-secondary rounded-pill px-5 py-3 text-white">More Details</a>-->
+            </div>
+
+            <!-- Third Column (Events Section) -->
+            <div class="col-lg-4 col-md-4 col-sm-12 wow fadeIn" data-wow-delay=".7s">
+                <div style="border: 2px solid #ddd; border-radius: 8px; background-color: #fff; padding: 20px;">
+                    <div class="categories">
+                        <h4 style="text-align: center; font-size: 1.5rem; color: #cf2030; font-weight: bold; margin-bottom: 20px;">
+                            Events</h4>
+
+                        <!-- Scrollable Event List -->
+                        <div class="list-group" style="max-height: 300px; overflow-y: auto;">
+                            {% for event in events %}
+                            {% if event.event_img %}
+                            <a href="{{ event.event_img.url }}" style="text-decoration: none;">
+                                <div class="list-group-item d-flex align-items-center"
+                                     style="border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; background-color: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                                    <img
+                                            src="{{ event.event_img.url }}"
+                                            alt="{{ event.name }}"
+                                            class="img-fluid rounded-3 me-3"
+                                            style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                                    <div >
+                                        <h5 class="mb-1" style="font-size: 1.1rem; color: #333; font-weight: bold;">{{ event.name }}</h5>
+                                        <p class="mb-0 text-muted"
+                                           style="font-size: 0.9rem; color: #666; max-width: 300px;">
+                                            {{ event.description|truncatewords:6 }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                            {% endif %}
+                            {% empty %}
+                            <p style="text-align: center; color: #888; font-size: 1rem;">No News available.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- End Vision Section -->
+
+
+<!-- Services Start -->
+<div id="service" class="container-fluid services py-5 mb-5">
+    <div class="container">
+        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+            <h5 class="text-primary">What We Offer</h5>
+            <h1>Services Built Specifically For Your Business</h1>
+        </div>
+        <div class="row g-5 services-inner">
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".3s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fa fa-code fa-4x mb-4 "></i>
+                            <h4 class="mb-3 text-primary">Regular Networking Meetups</h4>
+                            <p class="mb-4">Insightful events that connect like-minded professionals and
+                                entrepreneurs.</p>
+                            <!--                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".5s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fa fa-file-code fa-4x mb-4 "></i>
+                            <h4 class="mb-3 text-primary">Workshops & Seminars</h4>
+                            <p class="mb-4">Skill-building and knowledge-sharing sessions led by industry
+                                experts and successful entrepreneurs.</p>
+                            <!--                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".7s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fa fa-external-link-alt fa-4x mb-4 "></i>
+                            <h4 class="mb-3 text-primary">Collaborative Opportunities</h4>
+                            <p class="mb-4">A platform for creating strategic partnerships and exploring new
+                                business ventures.</p>
+                            <!--  <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".3s">
+                <div class="services-item bg-light">
+                    <div class="p-4 text-center services-content">
+                        <div class="services-content-icon">
+                            <i class="fas fa-user-secret fa-4x mb-4 "></i>
+                            <h4 class="mb-3 text-primary">Referral Programs</h4>
+                            <p class="mb-4">A community-driven initiative for members to refer services and
+                                solutions, benefiting all involved.</p>
+                            <!--                            <a href="" class="btn btn-secondary text-white px-5 py-3 rounded-pill">Read More</a>-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+
+<!-- Testimonial Start -->
+<div class="container-fluid testimonial py-5 mb-5">
+    <div class="container">
+        <div class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px;">
+            <h5 class="text-primary">Our Partners</h5>
+            <!--            <h1>Our Client Saying!</h1>-->
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay=".5s">
+            {% for company in companies %}
+            <div class="testimonial-item border p-4">
+                <a href="{% url 'company_landing' company.id %}">
+                    <div class="d-flex align-items-center">
+                        <div class="">
+                            <img src="{{ company.logo.url }}" alt="">
+                        </div>
+                        <div class="ms-4">
+                            <h4 class="text-secondary">{{company.name}}</h4>
+                            <p class="m-0 pb-3">Profession</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                                <i class="fas fa-star me-1 text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial End -->
+
+<!-- Contact Start -->
+<section id="contact" class="contact section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Contact Us</h2>
+    </div><!-- End Section Title -->
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gx-lg-0 gy-4">
+            <div class="col-lg-4">
+                <div class="info-container d-flex flex-column align-items-center justify-content-center">
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Chennai</p>
+                        </div>
+                    </div><!-- End Info Item -->
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+91 94442 46652 </p>
+                        </div>
+                    </div><!-- End Info Item -->
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>pngmeetup@gmail.com</p>
+                        </div>
+                    </div><!-- End Info Item -->
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+                        <i class="bi bi-clock flex-shrink-0"></i>
+                        <div>
+                            <h3>Open Hours:</h3>
+                            <p>Mon-Sat: 11AM - 23PM</p>
+                        </div>
+                    </div><!-- End Info Item -->
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade"
+                      data-aos-delay="100">
+                    <div class="row gy-4">
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name"
+                                   required="">
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" name="email"
+                                   placeholder="Your Email"
+                                   required="">
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                   required="">
+                        </div>
+                        <div class="col-md-12">
+                                <textarea class="form-control" name="message" rows="8" placeholder="Message"
+                                          required=""></textarea>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- End Contact Form -->
+        </div>
+    </div>
+</section><!-- /Contact Section -->
+<!-- Contact End -->
+
+<!-- Footer Start -->
+<div class="container-fluid footer bg-dark wow fadeIn" data-wow-delay=".3s">
+    <div class="container pt-5 pb-4">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'png_static\img\png_favicon.png' %}" style="height: 60px; width: 70px;">
+                </a>
+                <p class="mt-4 text-light">Today, PNG continues to foster a vibrant environment where
+                    entrepreneurs,
+                    professionals, and business leaders unite to grow, collaborate, and succeed.</p>
+                <div class="d-flex hightech-link">
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
+                            class="fab fa-facebook-f text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
+                            class="fab fa-twitter text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-2"><i
+                            class="fab fa-instagram text-primary"></i></a>
+                    <a href="" class="btn-light nav-fill btn btn-square rounded-circle me-0"><i
+                            class="fab fa-linkedin-in text-primary"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h2 class="h3 text-secondary">Short Link</h2>
+                <div class="mt-4 d-flex flex-column short-link justify-content-center">
+                    <a href="{% url 'about' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>About
+                        us</a>
+                    <a href="#service" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Services</a>
+                    <a href="{% url 'partners' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Partners</a>
+                    <a href="{% url 'news_new' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>News</a>
+                    <a href="{% url 'events' %}" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Events</a>
+                    <a href="#contact" class="mb-2 text-white"><i
+                            class="fas fa-angle-right text-secondary me-2"></i>Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <a href="#" class="h3 text-secondary">Contact Us</a>
+                <div class="text-white mt-4 d-flex flex-column contact-link">
+                    <a href="#!" class="pb-3 text-light border-bottom border-primary"><i
+                            class="fas fa-map-marker-alt text-secondary me-2"></i> Chennai</a>
+                    <a href="#!" class="py-3 text-light border-bottom border-primary"><i
+                            class="fas fa-phone-alt text-secondary me-2"></i> +91 9444246652</a>
+                    <a href="#!" class="py-3 text-light border-bottom border-primary"><i
+                            class="fas fa-envelope text-secondary me-2"></i> pngmeetup@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <hr class="text-light mt-5 mb-4">
+        <div class="row text-center">
+                <span class="text-light"><a href="#" class="text-secondary"><i
+                        class="fas fa-copyright text-secondary me-2"></i>PNG</a>, All right reserved.</span>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-secondary btn-square rounded-circle back-to-top"><i
+        class="fa fa-arrow-up text-white"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'png_static/lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'png_static/lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'png_static/lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'png_static/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'png_static/js/main.js' %}"></script>
+</body>
+
+</html>

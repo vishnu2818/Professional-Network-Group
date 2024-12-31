@@ -17,6 +17,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Event
 from .forms import EventForm
 from django.contrib import messages
+from django.db import IntegrityError
 
 def index(request):  # Latest news first
     companies = Company.objects.filter(status='approved')
@@ -34,13 +35,61 @@ def index(request):  # Latest news first
         'events': events[:11], })
 
 
+# def registration_form(request):
+#     if request.method == 'POST':
+#         form = RegistrationForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             company = form.save(commit=False)  # Don't save immediately
+#             # company.created_by = request.user  # Assign the logged-in user to 'created_by'
+#             company.save()  # Save the company instance
+#             messages.success(request, "Company registered successfully!")
+#             return redirect('index')  # Redirect after successful registration
+#         else:
+#             messages.error(request, "Please correct the errors below.")
+#     else:
+#         form = RegistrationForm()
+#
+#     return render(request, 'register.html', {'form': form})
+
+# def registration_form(request):
+#     if request.method == 'POST':
+#         form = RegistrationForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             company = form.save(commit=False)  # Don't save immediately
+#             company.created_by = request.user  # Assign the logged-in user to 'created_by'
+#
+#             # Process the bulleted_list field
+#             # bulleted_list = form.cleaned_data.get('bulleted_list', '')
+#             # processed_bullets = '\n'.join([line if line.startswith('*') else f'* {line}' for line in bulleted_list.splitlines() if line.strip()])
+#             # company.bulleted_list = processed_bullets
+#
+#             company.save()  # Save the company instance
+#
+#             messages.success(request, "Company registered successfully!")
+#             return redirect('login')  # Redirect after successful registration
+#         else:
+#             messages.error(request, "Please correct the errors below.")
+#     else:
+#         form = RegistrationForm()
+#
+#     return render(request, 'register.html', {'form': form})
+
 def registration_form(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             company = form.save(commit=False)  # Don't save immediately
-            company.created_by = request.user  # Assign the logged-in user to 'created_by'
+
+            # Ensure the user is authenticated before assigning
+            if request.user.is_authenticated:
+                company.created_by = request.user  # Assign the logged-in user to 'created_by'
+            else:
+                # If not authenticated, you can either redirect or set to a default user
+                messages.error(request, "You must be logged in to register a company.")
+                return redirect('login')  # Redirect to login page
+
             company.save()  # Save the company instance
+
             messages.success(request, "Company registered successfully!")
             return redirect('index')  # Redirect after successful registration
         else:
@@ -235,8 +284,7 @@ def company_create(request):
             return redirect('company_list')
     else:
         form = CompanyForm()
-    return render(request, 'company_update.html', {'form': form})
-
+    return render(request, 'add_new_company.html', {'form': form})
 
 
 
@@ -364,15 +412,10 @@ def news_delete(request, news_id):
     return render(request, 'news_delete.html', {'news': news})
 
 
-
-
 # View to display all events
 def event_list(request):
     events = Event.objects.all()
     return render(request, 'event_list.html', {'events': events})
-
-
-
 
 
 # View to display a single event's details

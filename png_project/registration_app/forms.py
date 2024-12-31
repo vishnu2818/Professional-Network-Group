@@ -9,8 +9,12 @@ from django.contrib.auth.models import User
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = Company
-        fields = ['name', 'email', 'logo', 'banner','banner_content', 'description','services', 'password','website_url','youtube_url', 'instagram_url', 'facebook_url','linkedin_url','title']
-
+        # fields = ['name', 'email', 'logo', 'banner','banner_content', 'description',
+        #           'services', 'password','website_url','youtube_url',
+        #           'instagram_url', 'facebook_url','linkedin_url','title'
+        #           ]
+        fields = '__all__'  # Include all fields, including password
+        exclude = ['bullet_points','status', 'created_by']
 
 # Form for login, where email is used as the username
 class LoginForm(AuthenticationForm):

@@ -1,16 +1,6 @@
 {% extends 'base.html' %}
 
 
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-
-<!--    <title>Company List</title>-->
-
-<!--</head>-->
-<!--<body>-->
 {% block content %}
     <style>
 <!--        body {-->
@@ -25,10 +15,7 @@
             color: #333;
         }
 
-        a {
-            text-decoration: none;
-            color: #cf2030;
-        }
+
 
         table {
             width: 100%;
@@ -60,6 +47,7 @@
             margin: 0 10px;
         }
 
+
         .company-button {
             display: inline-block;
             padding: 10px 15px;
@@ -70,14 +58,26 @@
             margin-bottom: 20px;
             font-weight: bold;
         }
-
-        #company_btn:hover {
+        .company-button1 {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #cf2030;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+         .company-button:hover {
             color: #fff;
         }
+
     </style>
     <h1>Company List</h1>
 
-    <a id="company_btn" href="{% url 'company_create' %}" class="company-button">Add New Company</a>
+    <a href="{% url 'company_create' %}" class="company-button">Add New Company</a>
+    <a href="{% url 'event_list' %}" class="company-button">View Events</a>
+    <a href="{% url 'news_list' %}" class="company-button">View News</a>
 
     <table>
         <thead>

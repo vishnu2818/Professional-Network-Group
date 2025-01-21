@@ -468,117 +468,56 @@ def landing(request):
     return render(request, 'landing.html', {'company': company})
 
 def events(request):
-    events = Event.objects.order_by('-date')  # Latest Event first
+    # events = Event.objects.order_by('-date')  # Latest Event first
+    query = request.GET.get('search', '').strip()
+    cleaned_query = re.sub(r'[^\w\s]', '', query)
+
+    if query:
+        events = Event.objects.filter(Q(name__icontains=cleaned_query) |
+                                      Q(location__icontains=cleaned_query))
+    else:
+        events = Event.objects.order_by('-date')
+
+    # Output companies for debugging
+    for event in events:
+        print(f"Company Name: {event.name}, Services: {event.location}")
     return render(request, 'events_news.html', {'events': events})
 
 def news_new(request):
-    news_articles = NewsUpload.objects.order_by('-publication_date')
+    query = request.GET.get('search', '').strip()
+    cleaned_query = re.sub(r'[^\w\s]', '', query)
+
+    if query:
+        news_articles = NewsUpload.objects.filter(Q(title__icontains=cleaned_query) |
+                                      Q(author__icontains=cleaned_query))
+    else:
+        news_articles = NewsUpload.objects.order_by('-publication_date')
+
+    # Output companies for debugging
+    for news in news_articles:
+        print(f"Company Name: {news.title}, Services: {news.author}")
+
     return render(request, 'events_news.html', {'news_articles': news_articles})
 
-def partners(request):
-    companies = Company.objects.filter(status='approved')
-    return render(request, 'events_news.html', {'companies': companies})
-
-
-# View to create a new event
-# def event_create(request):
-#     if request.method == 'POST':
-#         form = EventForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, "Event created successfully!")
-#             return redirect('event_list')
-#     else:
-#         form = EventForm()
-#     return render(request, 'event_update.html', {'form': form})
-
-# method for event creation
-# def event_list1(request):
-#     events = Event.objects.order_by('-date')  # Latest Event first
-#     return render(request, 'events.html', {'events': events})
-
-# def home2(request):
-#     return render(request, 'home.html')
-
-
 # def partners(request):
-#     # Query only approved companies
 #     companies = Company.objects.filter(status='approved')
-#
-#     for comp in companies:
-#         print(f"Company Name: {comp.name}, Status: {comp.status}")
-#
-#     return render(request, 'partners.html', {'companies': companies})
+#     return render(request, 'events_news.html', {'companies': companies})
 
+from django.db.models import Q
+import re
 
-# def partners_copy(request):
-#     # Query only approved companies
-#     companies = Company.objects.filter(status='approved')
-#
-#     for comp in companies:
-#         print(f"Company Name: {comp.name}, Status: {comp.status}")
-#
-#     return render(request, 'partners_copy.html', {'companies': companies})
+def partners(request):
+    query = request.GET.get('search', '').strip()
+    cleaned_query = re.sub(r'[^\w\s]', '', query)
+    if query:
+        companies = Company.objects.filter(
+            Q(status='approved') &
+            (Q(name__icontains=cleaned_query) | Q(services__icontains=cleaned_query)))
+    else:
+        companies = Company.objects.filter(status='approved')
 
+    # Output companies for debugging
+    for company in companies:
+        print(f"Company Name: {company.name}, Services: {company.services}")
 
-
-# def index(request):
-#     # Query only approved companies
-#     companies = Company.objects.filter(status='approved')
-#
-#     # Query all news articles ordered by publication date (most recent first)
-#     news_articles = NewsUpload.objects.order_by('-publication_date')
-#
-#     # Query all events
-#     events = Event.objects.all()
-#
-#     # Render the template and pass the context
-#     return render(request, 'index.html', {
-#         'companies': companies,
-#         'news_articles': news_articles[:11],  # Pass all news articles here
-#         'events': events[:11],  # Show only the first 3 events
-#     })
-
-# def land(request):
-#     company = None
-#     companies = Company.objects.all(status='approved')  # Fetch all companies
-#     print("All Companies:")
-#     for comp in companies:
-#         print(f"Company Name: {comp.name}")
-#         print(f"Email: {comp.email}")
-#         print(f"Status: {comp.status}")
-#         print(f"Description: {comp.description}")
-#         print(f"Logo: {comp.logo.url if comp.logo else 'No logo'}")
-#         print(f"Banner: {comp.banner.url if comp.banner else 'No banner'}")
-#         print(f"Created By: {comp.created_by.email}")
-#         print("-" * 30)  # Separator for readability
-#
-#     if request.user.is_authenticated:
-#         print(f"Logged-in User: {request.user.email}")
-#         try:
-#             # Fetch the company where the company email matches the logged-in user's email
-#             company = Company.objects.get(email=request.user.email)
-#             print(f"Company Name: {company.name}")
-#             print(f"Email: {company.email}")
-#             print(f"Status: {company.status}")
-#             print(f"Description: {company.description}")
-#             print(f"Logo: {company.logo.url if company.logo else 'No logo'}")
-#             print(f"Banner: {company.banner.url if company.banner else 'No banner'}")
-#             print(f"Created By: {company.created_by.email}")
-#         except Company.DoesNotExist:
-#             print("No company found for the logged-in user.")
-#
-#     return render(request, 'land_test.html', {'company': company})
-
-
-# def landing_page(request):
-#     company = None
-#     if request.user.is_authenticated:
-#         try:
-#             # Fetch the company for the logged-in user with status 'approved'
-#             company = Company.objects.filter(email=request.user.email, status='approved').first()
-#             if not company:
-#                 print("No approved company found for this user.")
-#         except Company.DoesNotExist:
-#             print("No company found for this user.")
-#     return render(request, 'land_test.html', {'company': company})
+    return render(request, 'events_news.html', {'companies': companies, 'query': query})
